@@ -4,29 +4,15 @@ spring:
         - dev
 ---
 server:
-    port: 8201
+    port: 7001
 spring:
     profiles: dev
-    application:
-        name: microservicecloud-config-client
 eureka:
-    instance：
-        hostname: eureka7001.com
+    instance:
+        hostname: eureka7001.com    # eureka 服务器端的实例名称  需要在C:\Windows\System32\drivers\etc\hosts 设置端口映射
     client:
-        register-with-eureka: false
+        register-with-eureka: false  # false 标识不向注册公司注册自己
+        fetch-registry: false  # false 标识自己及时注册中心，我的职责就是维护服务实例。并不需要检索服务
         service-url:
-            defaultZone: http://eureka7001.com:7001/eureka/
----
-server:
-    port: 8202
-spring:
-    profiles: test
-    application:
-        name: microservicecloud-config-client
-eureka:
-    instance：
-        hostname: eureka7001.com
-    client:
-        register-with-eureka: false
-        service-url:
-            defaultZone: http://eureka7001.com:7001/eureka/
+#            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  # 设置与eureka server交互的地址查询服务和注册服务
+            defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  
