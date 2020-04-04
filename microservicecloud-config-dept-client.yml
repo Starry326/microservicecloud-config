@@ -10,7 +10,7 @@ spring:
     application:
         name: microservicecloud-config-dept-client   #该微服务的名字
     datasource:
-        url: jdbc:mysql:///cloudDB01?serverTimezone=GMT
+        url: jdbc:mysql:///cloudDB02?serverTimezone=GMT
         username: root
         password: root
     thymeleaf:
